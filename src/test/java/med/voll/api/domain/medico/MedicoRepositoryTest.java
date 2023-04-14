@@ -42,8 +42,8 @@ class MedicoRepositoryTest {
         cadastrarConsulta(medico, paciente, proximaSegundaAs10);
 
         // when ou act
-        var medicoLivre = medicoRepository.escolherMedicoAleatorioLivreNaData(
-                Especialidade.CARDIOLOGIA, proximaSegundaAs10);
+        var medicoLivre = medicoRepository.escolherMedicoAleatorioLivreNaData(Especialidade.CARDIOLOGIA,
+                proximaSegundaAs10);
 
         // then ou assert
         assertThat(medicoLivre).isNull();
