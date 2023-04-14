@@ -33,7 +33,7 @@ class MedicoRepositoryTest {
     @Test
     @DisplayName("Deveria devolver null quando unico medico cadastrado nao esta disponivel na data")
     void escolherMedicoAleatorioLivreNaDataCenario1() {
-        //given ou arrange
+        // given ou arrange
         var proximaSegundaAs10 = LocalDate.now()
                 .with(TemporalAdjusters.next(DayOfWeek.MONDAY))
                 .atTime(10, 0);
@@ -41,26 +41,28 @@ class MedicoRepositoryTest {
         var paciente = cadastrarPaciente("Paciente", "paciente@email.com", "00000000000");
         cadastrarConsulta(medico, paciente, proximaSegundaAs10);
 
-        //when ou act
-        var medicoLivre = medicoRepository.escolherMedicoAleatorioLivreNaData(Especialidade.CARDIOLOGIA, proximaSegundaAs10);
+        // when ou act
+        var medicoLivre = medicoRepository.escolherMedicoAleatorioLivreNaData(
+                Especialidade.CARDIOLOGIA, proximaSegundaAs10);
 
-        //then ou assert
+        // then ou assert
         assertThat(medicoLivre).isNull();
     }
 
     @Test
     @DisplayName("Deveria devolver medico quando ele estiver disponivel na data")
     void escolherMedicoAleatorioLivreNaDataCenario2() {
-        //given ou arrange
+        // given ou arrange
         var proximaSegundaAs10 = LocalDate.now()
                 .with(TemporalAdjusters.next(DayOfWeek.MONDAY))
                 .atTime(10, 0);
         var medico = cadastrarMedico("Medico", "medico@voll.med", "123456", Especialidade.CARDIOLOGIA);
 
-        //when ou act
-        var medicoLivre = medicoRepository.escolherMedicoAleatorioLivreNaData(Especialidade.CARDIOLOGIA, proximaSegundaAs10);
+        // when ou act
+        var medicoLivre = medicoRepository.escolherMedicoAleatorioLivreNaData(Especialidade.CARDIOLOGIA,
+                proximaSegundaAs10);
 
-        //then ou assert
+        // then ou assert
         assertThat(medicoLivre).isEqualTo(medico);
     }
 
@@ -87,8 +89,7 @@ class MedicoRepositoryTest {
                 "61999999999",
                 crm,
                 especialidade,
-                dadosEndereco()
-        );
+                dadosEndereco());
     }
 
     private DadosCadastroPaciente dadosPaciente(String nome, String email, String cpf) {
@@ -97,8 +98,7 @@ class MedicoRepositoryTest {
                 email,
                 "61999999999",
                 cpf,
-                dadosEndereco()
-        );
+                dadosEndereco());
     }
 
     private DadosEndereco dadosEndereco() {
@@ -109,9 +109,7 @@ class MedicoRepositoryTest {
                 "Brasilia",
                 "DF",
                 null,
-                null
-        );
+                null);
     }
-
 
 }
