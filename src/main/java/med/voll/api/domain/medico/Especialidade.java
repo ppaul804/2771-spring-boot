@@ -5,6 +5,9 @@ public enum Especialidade {
     ORTOPEDIA,
     CARDIOLOGIA,
     GINECOLOGIA,
-    DERMATOLOGIA;
+    DERMATOLOGIA,
+    ONCOLOGIA, 
+    PEDIATRIA, 
+    OFTALMOLOGIA;
 
 }
